@@ -34,7 +34,8 @@ export default function CourseItem () {
 const styles = StyleSheet.create({
     root: {
         justifyContent: 'center',
-        marginLeft: 24
+        marginLeft: 24,
+       
     },
     image: {
         position: 'absolute'
