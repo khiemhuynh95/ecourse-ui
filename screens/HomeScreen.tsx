@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, StyleSheet, FlatList, Dimensions} from 'react-native'
+import {View, Text, StyleSheet, FlatList, ScrollView} from 'react-native'
 import colors from '../assets/colors'
 import CourseItem from '../components/CourseItem'
 import SubHeader from '../components/SubHeader'
@@ -7,7 +7,6 @@ import MyCourseItem from '../components/mycourse/MyCourseItem'
 import BottomTab from '../components/bottomtab/BottomTab'
 
 
-const windowHeight = Dimensions.get('window').height;
 const course_data = [{},{}]
 const my_course_data = [
     {
@@ -34,24 +33,28 @@ const my_course_data = [
 export default function HomeScreeen () {
     return(
         <View style={styles.root}>
+            <ScrollView >
+                <View style={styles.textWrapper}>
+                    <Text style={styles.title}>Fundamentals Courses</Text>
+                    <Text style={styles.description}>Find the right iOS Game Development course for you. Answer a few questions to see what we'd recommend for you.</Text>
+                </View>
+                <View style={styles.courseList}>
+                    <FlatList
+                            horizontal={true}
+                            data={course_data}
+                            showsHorizontalScrollIndicator={false}
+                            keyExtractor={keyExtractor}
+                            renderItem={renderItem}
+                    />
+                </View>
+                
+                <SubHeader style={styles.subHeader} title="The Fundamentals" ></SubHeader>
+                <MyCourseItem course={my_course_data[0]}/>
+                <MyCourseItem course={my_course_data[1]}/>
+                <MyCourseItem course={my_course_data[0]}/>
+                <MyCourseItem course={my_course_data[1]}/>
+            </ScrollView>
             
-            <View style={styles.textWrapper}>
-                <Text style={styles.title}>Fundamentals Courses</Text>
-                <Text style={styles.description}>Find the right iOS Game Development course for you. Answer a few questions to see what we'd recommend for you.</Text>
-            </View>
-            <View style={styles.courseList}>
-                <FlatList
-                        horizontal={true}
-                        data={course_data}
-                        showsHorizontalScrollIndicator={false}
-                        keyExtractor={keyExtractor}
-                        renderItem={renderItem}
-                />
-            </View>
-            
-            <SubHeader style={styles.subHeader} title="The Fundamentals" ></SubHeader>
-            <MyCourseItem course={my_course_data[0]}/>
-            <MyCourseItem course={my_course_data[1]}/>
             <View style={styles.bottomTabView}>
                 <BottomTab style={styles.bottomTab}/>
             </View>
@@ -69,7 +72,7 @@ const styles = StyleSheet.create({
     root: {
         zIndex: 0,
         height: '100%',
-        flexDirection: 'column'
+        
     },
     courseList: {
 
