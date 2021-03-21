@@ -7,7 +7,7 @@ import MyCourseItem from '../components/mycourse/MyCourseItem'
 import BottomTab from '../components/bottomtab/BottomTab'
 
 
-const course_data = [{},{}]
+const course_data = [{title:"1"},{title: "2"}]
 const my_course_data = [
     {
         icon: require('../assets/images/course-icon-1.png'),
@@ -30,7 +30,7 @@ const my_course_data = [
         completed: "30%"
     }
 ]
-export default function HomeScreeen () {
+export default function HomeScreen () {
     return(
         <View style={styles.root}>
             <ScrollView >
@@ -63,7 +63,7 @@ export default function HomeScreeen () {
     )
 }
 const keyExtractor = (item) => item.title;
-const renderItem = ({item}) => {
+const renderItem = () => {
     return (
       <CourseItem ></CourseItem>
     );

@@ -3,14 +3,15 @@ import {View, StyleSheet, Text, TouchableOpacity} from 'react-native'
 import colors from '../assets/colors'
 import Illutrastion from '../assets/images/1.svg'
 
-export default function WelcomeScreen () {
+
+export default function WelcomeScreen ({navigation}) {
     return (
         <View style={styles.root}>
             <Illutrastion ></Illutrastion>
             <View style={styles.contentWrapper}>
                 <Text style={styles.title}>Game Development Fundamentals Courses</Text>
                 <Text style={styles.description}>Find the right iOS Game Development course for you. Answer a few questions to see what we'd recommend for you.</Text>
-                <TouchableOpacity style={styles.btn}>
+                <TouchableOpacity onPress={()=>{navigation.navigate('Home')}} style={styles.btn}>
                     <Text style={styles.btnLabel}>Get Started</Text>
                 </TouchableOpacity>
             </View>

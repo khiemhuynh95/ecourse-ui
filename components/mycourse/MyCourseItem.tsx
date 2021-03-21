@@ -22,7 +22,7 @@ export default function MyCourseItem(props) {
                 
                 <View style={styles.line2}>
                     { 
-                        course.tag.map(element => (<CourseTag text={element}/>))
+                        course.tag.map((element) => (<CourseTag key={element} text={element}/>))
                     }
                     
                     <View style={styles.costBox}>
@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginHorizontal: 24,
         marginBottom: 24,
-        
     },
     courseIcon: {
         
@@ -64,9 +63,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 20,
         width: '70%',
-       
         flexShrink: 1,
-       
     },
     ratingBox: {
         position: 'absolute',
@@ -100,7 +97,6 @@ const styles = StyleSheet.create({
         color: colors.gray
     },
     processbar: {
-       
         position: 'absolute',
         right: 0
     },
@@ -109,7 +105,6 @@ const styles = StyleSheet.create({
         marginBottom: 7,
         alignItems: 'center',
         width: '100%',
-      
     },
     line2: {
         flexDirection: 'row',
