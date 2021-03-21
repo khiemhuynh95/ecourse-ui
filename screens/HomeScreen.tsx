@@ -1,7 +1,7 @@
 import React from 'react'
 import {View, Text, StyleSheet, FlatList, ScrollView} from 'react-native'
 import colors from '../assets/colors'
-import CourseItem from '../components/CourseItem'
+import CourseItem from '../components/course/CourseItem'
 import SubHeader from '../components/SubHeader'
 import MyCourseItem from '../components/mycourse/MyCourseItem'
 import BottomTab from '../components/bottomtab/BottomTab'
@@ -58,7 +58,7 @@ export default function HomeScreeen () {
             <View style={styles.bottomTabView}>
                 <BottomTab style={styles.bottomTab}/>
             </View>
-               
+            
         </View>
     )
 }

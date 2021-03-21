@@ -1,14 +1,23 @@
-import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
-import colors from '../assets/colors'
+import React, {useState} from 'react'
+import {View, Text, StyleSheet, TouchableOpacity, Button} from 'react-native'
+import colors from '../../assets/colors'
 
-import Illustration from '../assets/images/2.svg'
+import Illustration from '../../assets/images/2.svg'
+
 import { FontAwesome5 } from '@expo/vector-icons';
-
+import Modal from 'react-native-modal'
+import { AntDesign } from '@expo/vector-icons';
+import CourseContent from '../course/CourseContent'
 
 export default function CourseItem () {
+    const [showModal, setShowModal] = useState(false)
+
+    
+
     return(
-        <View style={styles.root}>
+        <TouchableOpacity style={styles.root}
+            onPress={()=>{setShowModal(!showModal)}}
+        >
             <Illustration/>
 
             <View style={styles.dimBox1}>
@@ -27,7 +36,26 @@ export default function CourseItem () {
                 </Text>
                 
             </View>
-        </View>
+            <Modal
+                style={styles.modal}
+                testID={'modal'}
+                isVisible={showModal}
+                backdropColor={colors.darkBlue}
+                backdropOpacity={0.4}
+                animationIn="zoomInDown"
+                animationOut="zoomOutUp"
+                animationInTiming={600}
+                animationOutTiming={600}
+                backdropTransitionInTiming={600}
+                backdropTransitionOutTiming={600}>
+                
+                <TouchableOpacity style={styles.closeModalBtn} onPress={()=>{setShowModal(false)}}>
+                    <AntDesign name="close" size={24} color={colors.gray} />
+                </TouchableOpacity>
+                <CourseContent />
+            </Modal>
+
+        </TouchableOpacity>
     )
 }
 
@@ -35,7 +63,6 @@ const styles = StyleSheet.create({
     root: {
         justifyContent: 'center',
         marginLeft: 24,
-       
     },
     image: {
         position: 'absolute'
@@ -72,13 +99,11 @@ const styles = StyleSheet.create({
     
     dimBox2: {
         position: 'absolute',
-        
         bottom: 24,
         width: 208,
         height: 120,
         marginLeft: 24,
         borderRadius: 20,
-        
     },
 
 
@@ -101,9 +126,22 @@ const styles = StyleSheet.create({
         marginBottom: 11,
         top: 19,
         opacity: 0.6
-    }
-
-
-
+    },
+    modal: {
+        borderRadius: 20,
+        backgroundColor: colors.white,
+        marginHorizontal: 24,
+        
+        marginBottom: 38,
+        marginTop: 62,
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start'
+    },
+    closeModalBtn: {
+        marginLeft: 24,
+        marginTop: 24,
+    },
+    
 
 })
