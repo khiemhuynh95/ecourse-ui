@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {View, Text, StyleSheet, TouchableOpacity, Button} from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 import colors from '../../assets/colors'
 
 import Illustration from '../../assets/images/2.svg'

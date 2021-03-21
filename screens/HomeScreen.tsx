@@ -30,7 +30,7 @@ const my_course_data = [
         completed: "30%"
     }
 ]
-export default function HomeScreen () {
+export default function HomeScreen ({navigation}) {
     return(
         <View style={styles.root}>
             <ScrollView >

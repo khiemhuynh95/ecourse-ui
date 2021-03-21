@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native'
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native'
 import colors from '../../assets/colors'
 import RatingBox from '../../components/mycourse/RatingBox'
 import IconWithText from '../course/IconWithText'
