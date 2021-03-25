@@ -16,8 +16,7 @@ export default function CourseItem () {
 
     return(
         <TouchableOpacity style={styles.root}
-            onPress={()=>{setShowModal(!showModal)}}
-        >
+            onPress={()=>{setShowModal(!showModal)}}>
             <Illustration/>
 
             <View style={styles.dimBox1}>

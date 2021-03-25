@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
+import {View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native'
 import colors from '../../assets/colors'
 import { Feather } from '@expo/vector-icons';
 
@@ -11,10 +11,13 @@ export default function IconWithLabel (props) {
     const {style, name, label, size} = props
 
     return(
-        <TouchableOpacity onPress={()=>setPressed(!pressed)} style={styles.root}>
-            <Feather name={name} size={size} color={pressed ? colors.blue : colors.gray} />
+        <View style={styles.root}>
+            <TouchableWithoutFeedback onPress={()=>setPressed(!pressed)} >
+                <Feather name={name} size={size} color={pressed ? colors.blue : colors.gray} />
+            </TouchableWithoutFeedback>
             {pressed && <Text style={styles.text}>{label}</Text>}
-        </TouchableOpacity>
+        </View>
+        
     )
 }
 
